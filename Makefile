@@ -3,7 +3,8 @@ CC = cc
 CFLAGS = -Wall -Wextra -Werror -g
 INC_DIR = includes
 SRCS = srcs/main.c \
-		srcs/ft_atoi.c 
+		srcs/ft_atoi.c \
+		srcs/parser.c
 OBJS = $(SRCS:.c=.o)
 LIBS = -pthread
 HEADERS = -I$(INC_DIR)

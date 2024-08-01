@@ -28,6 +28,17 @@ num4: The time(in milliseconds) a philosopher will spend sleeping.\n\
 num5: If all philosophers have eaten at least num5 times, the simulation stops. \
 If not specified, the simulation stops when a philosopher dies."
 
+typedef struct s_philo
+{
+	pthread_t th;
+	int		num_eat;
+	int		last_meal;
+	struct	timeval tv;
+	int		a;
+	pthread_mutex_t l_fork;
+	pthread_mutex_t r_fork;
+}	t_philo;
+
 typedef struct s_rules
 {
 	int	num_philo;
@@ -35,7 +46,13 @@ typedef struct s_rules
 	int	time_eat;
 	int	time_sleep;
 	int	num_eat;
+	t_philo *philo;
+	pthread_mutex_t *forks;
 }	t_rules;
+
+//parser
+int	check_digit(char *s);
+int	check_input(char **argv);
 
 int	ft_atoi(char *s);
 
